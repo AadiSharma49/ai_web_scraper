@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+// Strip any trailing slash so "https://host/" and "https://host" both work.
+const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000").trim().replace(/\/+$/, "");
 
 // Turns the "- bullet" lines returned by the AI into a lead sentence + list.
 function Summary({ text }) {
